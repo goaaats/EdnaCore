@@ -9,9 +9,11 @@ using Microsoft.Xna.Framework.Media;
 
 namespace EdnaCore.Scenes
 {
-    class MainMenuScene : IGameScene, IDisposable
+    class MainMenuScene : GameScene, IDisposable
     {
-        public IGameScene ParentScene { get; set; }
+        public MainMenuScene(EdnaGame game, GameScene parentScene = null) : base(game, parentScene)
+        {
+        }
 
         private Song _mainMenuTrack;
 
@@ -23,44 +25,32 @@ namespace EdnaCore.Scenes
         private SimpleEdnaButton _menuButtonLoad;
         private SimpleEdnaButton _menuButtonSave;
 
-        private EdnaRoomScene _gameRoom;
-
-        public void LoadContent(ContentManager content)
+        public override void LoadContent()
         {
-            _mainMenuTrack = content.Load<Song>("audio/music/main_theme");
-            MediaPlayer.Play(_mainMenuTrack);
-            MediaPlayer.MediaStateChanged += MediaPlayerOnMediaStateChanged;
+            _mainMenuTrack = Game.Content.Load<Song>("audio/music/main_theme");
+            Game.Music.PlaySong(_mainMenuTrack);
 
-            _menuBgTex = content.Load<Texture2D>("visual/hintergrund/main_de");
+            _menuBgTex = Game.Content.Load<Texture2D>("visual/hintergrund/main_de");
 
-            _menuButtonNewGame = new SimpleEdnaButton(content, "visual/gui/hauptmenue/de/b_neu", new Point(20, 300));
-
-            _gameRoom = new EdnaRoomScene("");
-            _gameRoom.LoadContent(content);
+            _menuButtonNewGame = new SimpleEdnaButton(Game.Content, "visual/gui/hauptmenue/de/b_neu", new Point(20, 300));
         }
 
-        private void MediaPlayerOnMediaStateChanged(object? sender, EventArgs e)
-        {
-            MediaPlayer.Play(_mainMenuTrack);
-        }
-
-        public void Draw(GameTime time, SpriteBatch spriteBatch)
+        public override void Draw(GameTime time, SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
             spriteBatch.Draw(_menuBgTex, Vector2.Zero, Color.White);
 
             if (_menuButtonNewGame.Draw(spriteBatch))
-                MediaPlayer.Stop();
-
-            _gameRoom.Draw(time, spriteBatch);
+                Game.LoadRoom(100101);
+                
+            spriteBatch.DrawString(Game.EdnaFont, "EDNA CORE", new Vector2(448, 526), Color.Black);
 
             spriteBatch.End();
         }
 
         public void Dispose()
         {
-            MediaPlayer.MediaStateChanged -= MediaPlayerOnMediaStateChanged;
-            MediaPlayer.Stop();
+            Game.Music.Stop();
 
             _mainMenuTrack?.Dispose();
             _menuBgTex?.Dispose();

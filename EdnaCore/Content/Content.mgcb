@@ -289,6 +289,13 @@
 /processorParam:Quality=Best
 /build:audio/music/zelle.ogg
 
+#begin EdnaFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:EdnaFont.spritefont
+
 #begin map_converted/001-ednaszelle.wamc
 /copy:map_converted/001-ednaszelle.wamc
 
@@ -639,6 +646,57 @@
 
 #begin map_converted/7009.wamc
 /copy:map_converted/7009.wamc
+
+#begin script/de/animationsbild.csv
+/copy:script/de/animationsbild.csv
+
+#begin script/de/ausgang.csv
+/copy:script/de/ausgang.csv
+
+#begin script/de/benutzemit.csv
+/copy:script/de/benutzemit.csv
+
+#begin script/de/bildfolge.csv
+/copy:script/de/bildfolge.csv
+
+#begin script/de/characteranimationset.csv
+/copy:script/de/characteranimationset.csv
+
+#begin script/de/choiceliste.csv
+/copy:script/de/choiceliste.csv
+
+#begin script/de/inventarbenutzemit.csv
+/copy:script/de/inventarbenutzemit.csv
+
+#begin script/de/inventarobjekt.csv
+/copy:script/de/inventarobjekt.csv
+
+#begin script/de/nsc.csv
+/copy:script/de/nsc.csv
+
+#begin script/de/raum.csv
+/copy:script/de/raum.csv
+
+#begin script/de/raumobjekt.csv
+/copy:script/de/raumobjekt.csv
+
+#begin script/de/raumobjektdarstellung.csv
+/copy:script/de/raumobjektdarstellung.csv
+
+#begin script/de/raumobjektinteraktion.csv
+/copy:script/de/raumobjektinteraktion.csv
+
+#begin script/de/skript.csv
+/copy:script/de/skript.csv
+
+#begin script/de/timer.csv
+/copy:script/de/timer.csv
+
+#begin script/de/topic.csv
+/copy:script/de/topic.csv
+
+#begin script/de/walkableareamap.csv
+/copy:script/de/walkableareamap.csv
 
 #begin visual/gui/aAusbrecherinOff.png
 /importer:TextureImporter

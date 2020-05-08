@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace EdnaCore.Scenes
+namespace EdnaCore
 {
     enum CursorKind
     {

@@ -13,6 +13,7 @@ namespace EdnaCore
 
         public static bool DrawButtonRects = false;
         public static bool DrawWalkableAreaMap = false;
+        public static bool DrawRaumObjektRects = false;
 
         public static void DrawRect(Rectangle rectangle)
         {
